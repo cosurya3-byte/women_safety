@@ -1,0 +1,4 @@
+-- SQLAlchemy models are authoritative; Alembic will generate/execute the PostgreSQL schema.
+-- Tables: users, user_profiles, medical_information, otp_verifications,
+-- emergency_contacts, sos_incidents, locations, geofences, threat_assessments,
+-- recordings, fake_calls, chat_sessions, chat_messages, route_requests.

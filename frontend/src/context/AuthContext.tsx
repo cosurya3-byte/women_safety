@@ -1,0 +1,3 @@
+import {createContext,useContext,useState,ReactNode} from 'react';
+type Auth={loggedIn:boolean;signIn:(data:{access_token:string;refresh_token:string})=>void;signOut:()=>void};const C=createContext<Auth>({loggedIn:false,signIn:()=>{},signOut:()=>{}});
+export function AuthProvider({children}:{children:ReactNode}){const [loggedIn,setLoggedIn]=useState(!!localStorage.getItem('access_token'));const signIn=(d:{access_token:string;refresh_token:string})=>{localStorage.setItem('access_token',d.access_token);localStorage.setItem('refresh_token',d.refresh_token);setLoggedIn(true)};const signOut=()=>{localStorage.clear();setLoggedIn(false)};return <C.Provider value={{loggedIn,signIn,signOut}}>{children}</C.Provider>}export const useAuth=()=>useContext(C);

@@ -1,0 +1,3 @@
+import {Link,Outlet} from 'react-router-dom';import {ShieldAlert,LogOut} from 'lucide-react';import {useAuth} from '../context/AuthContext';
+const links=[['/','Dashboard'],['/contacts','Contacts'],['/sos','SOS Center'],['/tracking','Live Tracking'],['/threat','Threat Check'],['/recordings','Evidence'],['/fake-call','Fake Call'],['/chat','Safety Chat'],['/route','Safe Route']];
+export default function AppLayout(){const {signOut}=useAuth();return <div className="shell"><aside><h1><ShieldAlert/> Sahaaya</h1><small>Smart Women Security</small>{links.map(([to,label])=><Link key={to} to={to}>{label}</Link>)}<button onClick={signOut}><LogOut/> Log out</button></aside><main><Outlet/></main></div>}

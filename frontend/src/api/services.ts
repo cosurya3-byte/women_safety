@@ -1,0 +1,3 @@
+import client from './client'; const get=(url:string)=>client.get(url).then(r=>r.data);const post=(url:string,data?:unknown)=>client.post(url,data).then(r=>r.data);
+export const authApi={register:(d:unknown)=>post('/auth/register',d),verify:(d:unknown)=>post('/auth/verify-otp',d),login:(d:unknown)=>post('/auth/login',d),me:()=>get('/auth/me')};
+export const safetyApi={contacts:()=>get('/emergency-contacts'),addContact:(d:unknown)=>post('/emergency-contacts',d),sos:(d:unknown)=>post('/sos/activate',d),location:(d:unknown)=>post('/location',d),threat:(d:unknown)=>post('/threat/analyze',d),chat:(d:unknown)=>post('/chatbot/message',d),routes:(d:unknown)=>post('/routes/recommend',d),calls:()=>get('/fake-calls'),addCall:(d:unknown)=>post('/fake-calls',d)};

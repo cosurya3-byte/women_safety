@@ -1,0 +1,1 @@
+-- Create users through POST /api/auth/register so password hashes are never inserted as plaintext.
